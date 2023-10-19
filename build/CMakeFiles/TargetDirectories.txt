@@ -1,14 +1,7 @@
 /home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles/edit_cache.dir
 /home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles/rebuild_cache.dir
-/home/kirill/git_repozitories/COMPUT_MATH/build/interpolant/CMakeFiles/interpolant_lib.dir
-/home/kirill/git_repozitories/COMPUT_MATH/build/interpolant/CMakeFiles/edit_cache.dir
-/home/kirill/git_repozitories/COMPUT_MATH/build/interpolant/CMakeFiles/rebuild_cache.dir
-/home/kirill/git_repozitories/COMPUT_MATH/build/tools/CMakeFiles/tools_lib.dir
-/home/kirill/git_repozitories/COMPUT_MATH/build/tools/CMakeFiles/edit_cache.dir
-/home/kirill/git_repozitories/COMPUT_MATH/build/tools/CMakeFiles/rebuild_cache.dir
+/home/kirill/git_repozitories/COMPUT_MATH/build/source/CMakeFiles/edit_cache.dir
+/home/kirill/git_repozitories/COMPUT_MATH/build/source/CMakeFiles/rebuild_cache.dir
 /home/kirill/git_repozitories/COMPUT_MATH/build/TESTS/CMakeFiles/test.dir
 /home/kirill/git_repozitories/COMPUT_MATH/build/TESTS/CMakeFiles/edit_cache.dir
 /home/kirill/git_repozitories/COMPUT_MATH/build/TESTS/CMakeFiles/rebuild_cache.dir
-/home/kirill/git_repozitories/COMPUT_MATH/build/num_differentiation/CMakeFiles/num_differentiation_lib.dir
-/home/kirill/git_repozitories/COMPUT_MATH/build/num_differentiation/CMakeFiles/edit_cache.dir
-/home/kirill/git_repozitories/COMPUT_MATH/build/num_differentiation/CMakeFiles/rebuild_cache.dir

@@ -63,24 +63,18 @@ CMAKE_BINARY_DIR = /home/kirill/git_repozitories/COMPUT_MATH/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: interpolant/all
-all: tools/all
+all: source/all
 all: TESTS/all
-all: num_differentiation/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall: interpolant/preinstall
-preinstall: tools/preinstall
+preinstall: source/preinstall
 preinstall: TESTS/preinstall
-preinstall: num_differentiation/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: interpolant/clean
-clean: tools/clean
+clean: source/clean
 clean: TESTS/clean
-clean: num_differentiation/clean
 .PHONY : clean
 
 #=============================================================================
@@ -99,101 +93,19 @@ TESTS/clean: TESTS/CMakeFiles/test.dir/clean
 .PHONY : TESTS/clean
 
 #=============================================================================
-# Directory level rules for directory interpolant
+# Directory level rules for directory source
 
 # Recursive "all" directory target.
-interpolant/all: interpolant/CMakeFiles/interpolant_lib.dir/all
-.PHONY : interpolant/all
+source/all:
+.PHONY : source/all
 
 # Recursive "preinstall" directory target.
-interpolant/preinstall:
-.PHONY : interpolant/preinstall
+source/preinstall:
+.PHONY : source/preinstall
 
 # Recursive "clean" directory target.
-interpolant/clean: interpolant/CMakeFiles/interpolant_lib.dir/clean
-.PHONY : interpolant/clean
-
-#=============================================================================
-# Directory level rules for directory num_differentiation
-
-# Recursive "all" directory target.
-num_differentiation/all: num_differentiation/CMakeFiles/num_differentiation_lib.dir/all
-.PHONY : num_differentiation/all
-
-# Recursive "preinstall" directory target.
-num_differentiation/preinstall:
-.PHONY : num_differentiation/preinstall
-
-# Recursive "clean" directory target.
-num_differentiation/clean: num_differentiation/CMakeFiles/num_differentiation_lib.dir/clean
-.PHONY : num_differentiation/clean
-
-#=============================================================================
-# Directory level rules for directory tools
-
-# Recursive "all" directory target.
-tools/all: tools/CMakeFiles/tools_lib.dir/all
-.PHONY : tools/all
-
-# Recursive "preinstall" directory target.
-tools/preinstall:
-.PHONY : tools/preinstall
-
-# Recursive "clean" directory target.
-tools/clean: tools/CMakeFiles/tools_lib.dir/clean
-.PHONY : tools/clean
-
-#=============================================================================
-# Target rules for target interpolant/CMakeFiles/interpolant_lib.dir
-
-# All Build rule for target.
-interpolant/CMakeFiles/interpolant_lib.dir/all:
-	$(MAKE) $(MAKESILENT) -f interpolant/CMakeFiles/interpolant_lib.dir/build.make interpolant/CMakeFiles/interpolant_lib.dir/depend
-	$(MAKE) $(MAKESILENT) -f interpolant/CMakeFiles/interpolant_lib.dir/build.make interpolant/CMakeFiles/interpolant_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles --progress-num= "Built target interpolant_lib"
-.PHONY : interpolant/CMakeFiles/interpolant_lib.dir/all
-
-# Build rule for subdir invocation for target.
-interpolant/CMakeFiles/interpolant_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles 0
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 interpolant/CMakeFiles/interpolant_lib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles 0
-.PHONY : interpolant/CMakeFiles/interpolant_lib.dir/rule
-
-# Convenience name for target.
-interpolant_lib: interpolant/CMakeFiles/interpolant_lib.dir/rule
-.PHONY : interpolant_lib
-
-# clean rule for target.
-interpolant/CMakeFiles/interpolant_lib.dir/clean:
-	$(MAKE) $(MAKESILENT) -f interpolant/CMakeFiles/interpolant_lib.dir/build.make interpolant/CMakeFiles/interpolant_lib.dir/clean
-.PHONY : interpolant/CMakeFiles/interpolant_lib.dir/clean
-
-#=============================================================================
-# Target rules for target tools/CMakeFiles/tools_lib.dir
-
-# All Build rule for target.
-tools/CMakeFiles/tools_lib.dir/all:
-	$(MAKE) $(MAKESILENT) -f tools/CMakeFiles/tools_lib.dir/build.make tools/CMakeFiles/tools_lib.dir/depend
-	$(MAKE) $(MAKESILENT) -f tools/CMakeFiles/tools_lib.dir/build.make tools/CMakeFiles/tools_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles --progress-num= "Built target tools_lib"
-.PHONY : tools/CMakeFiles/tools_lib.dir/all
-
-# Build rule for subdir invocation for target.
-tools/CMakeFiles/tools_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles 0
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tools/CMakeFiles/tools_lib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles 0
-.PHONY : tools/CMakeFiles/tools_lib.dir/rule
-
-# Convenience name for target.
-tools_lib: tools/CMakeFiles/tools_lib.dir/rule
-.PHONY : tools_lib
-
-# clean rule for target.
-tools/CMakeFiles/tools_lib.dir/clean:
-	$(MAKE) $(MAKESILENT) -f tools/CMakeFiles/tools_lib.dir/build.make tools/CMakeFiles/tools_lib.dir/clean
-.PHONY : tools/CMakeFiles/tools_lib.dir/clean
+source/clean:
+.PHONY : source/clean
 
 #=============================================================================
 # Target rules for target TESTS/CMakeFiles/test.dir
@@ -220,32 +132,6 @@ test: TESTS/CMakeFiles/test.dir/rule
 TESTS/CMakeFiles/test.dir/clean:
 	$(MAKE) $(MAKESILENT) -f TESTS/CMakeFiles/test.dir/build.make TESTS/CMakeFiles/test.dir/clean
 .PHONY : TESTS/CMakeFiles/test.dir/clean
-
-#=============================================================================
-# Target rules for target num_differentiation/CMakeFiles/num_differentiation_lib.dir
-
-# All Build rule for target.
-num_differentiation/CMakeFiles/num_differentiation_lib.dir/all:
-	$(MAKE) $(MAKESILENT) -f num_differentiation/CMakeFiles/num_differentiation_lib.dir/build.make num_differentiation/CMakeFiles/num_differentiation_lib.dir/depend
-	$(MAKE) $(MAKESILENT) -f num_differentiation/CMakeFiles/num_differentiation_lib.dir/build.make num_differentiation/CMakeFiles/num_differentiation_lib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles --progress-num= "Built target num_differentiation_lib"
-.PHONY : num_differentiation/CMakeFiles/num_differentiation_lib.dir/all
-
-# Build rule for subdir invocation for target.
-num_differentiation/CMakeFiles/num_differentiation_lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles 0
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 num_differentiation/CMakeFiles/num_differentiation_lib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles 0
-.PHONY : num_differentiation/CMakeFiles/num_differentiation_lib.dir/rule
-
-# Convenience name for target.
-num_differentiation_lib: num_differentiation/CMakeFiles/num_differentiation_lib.dir/rule
-.PHONY : num_differentiation_lib
-
-# clean rule for target.
-num_differentiation/CMakeFiles/num_differentiation_lib.dir/clean:
-	$(MAKE) $(MAKESILENT) -f num_differentiation/CMakeFiles/num_differentiation_lib.dir/build.make num_differentiation/CMakeFiles/num_differentiation_lib.dir/clean
-.PHONY : num_differentiation/CMakeFiles/num_differentiation_lib.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
-#include "../interpolant/interpolant.hpp"
-#include "../tools/grids.hpp"
-#include "../tools/write_points.hpp"
+#include "../source/interpolant/interpolant.hpp"
+#include "../source/tools/grids.hpp"
+#include "../source/tools/write_points.hpp"
 
 #include <iostream>
 #include<iomanip>

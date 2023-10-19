@@ -10,7 +10,7 @@ private:
     std::array<yType, N> values;
 
 public:
-    NewtonInterpolator(const std::array<xType, N>& points, const std::array<yType, N>& values) noexcept;
+    NewtonInterpolator(const std::array<xType, N>& points_, const std::array<yType, N>& values_) noexcept;
     
     yType interpolate(const xType& x) const noexcept;
     
@@ -18,10 +18,10 @@ public:
 
 
 template<typename xType, typename yType, std::size_t N>
-NewtonInterpolator<xType, yType, N>::NewtonInterpolator(const std::array<xType, N>& points, const std::array<yType, N>& values) noexcept
+NewtonInterpolator<xType, yType, N>::NewtonInterpolator(const std::array<xType, N>& points_, const std::array<yType, N>& values_) noexcept
 {
-    this->points = points;
-    this->values = values;
+    this->points = points_;
+    this->values = values_;
 
     for(std::size_t j = 0; j < N - 1; j++)
     {

@@ -7,9 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_compile_options(-Wall -Werror)
 
-add_subdirectory(interpolant)
-add_subdirectory(tools)
+add_subdirectory(source)
 add_subdirectory(TESTS)
-add_subdirectory(num_differentiation)
 
-
+add_library(comput_math_lib INTERFACE ${source})

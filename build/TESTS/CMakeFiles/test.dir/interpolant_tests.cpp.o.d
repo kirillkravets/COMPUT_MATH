@@ -265,8 +265,8 @@ TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.o: \
  /usr/include/gtest/gtest-test-part.h /usr/include/gtest/gtest_prod.h \
  /usr/include/gtest/gtest-typed-test.h \
  /usr/include/gtest/gtest_pred_impl.h \
- /home/kirill/git_repozitories/COMPUT_MATH/TESTS/../interpolant/interpolant.hpp \
- /home/kirill/git_repozitories/COMPUT_MATH/TESTS/../tools/grids.hpp \
+ /home/kirill/git_repozitories/COMPUT_MATH/TESTS/../source/interpolant/interpolant.hpp \
+ /home/kirill/git_repozitories/COMPUT_MATH/TESTS/../source/tools/grids.hpp \
  /usr/include/c++/11/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -289,7 +289,7 @@ TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.o: \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
  /usr/include/c++/11/tr1/riemann_zeta.tcc \
- /home/kirill/git_repozitories/COMPUT_MATH/TESTS/../tools/write_points.hpp \
+ /home/kirill/git_repozitories/COMPUT_MATH/TESTS/../source/tools/write_points.hpp \
  /usr/include/c++/11/fstream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \

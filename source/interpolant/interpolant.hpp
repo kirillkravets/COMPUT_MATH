@@ -20,19 +20,19 @@ public:
 template<typename xType, typename yType, std::size_t N>
 NewtonInterpolator<xType, yType, N>::NewtonInterpolator(const std::array<xType, N>& points_, const std::array<yType, N>& values_) noexcept
 {
-    this->points = points_;
-    this->values = values_;
+    points = points_;
+    values = values_;
 
     for(std::size_t j = 0; j < N - 1; j++)
     {
-        yType a = this->values[0];
+        yType a = values[0];
 
         for(std::size_t i = 0; i < N - 1 - j; i++)
         {
-            this->values[i] = (this->values[i+1] - this->values[i]) / (this->points[i + 1 + j] - this->points[i]);
+            values[i] = (values[i+1] - values[i]) / (points[i + 1 + j] - points[i]);
         }
 
-        this->values[N - 1 - j] = a;
+        values[N - 1 - j] = a;
     }
 
 }
@@ -67,41 +67,41 @@ public:
 };
 
 template<typename xType, typename yType, std::size_t N >
-HermiteInterpolator<xType, yType, N>::HermiteInterpolator(const std::array<xType, N> &points, const std::array<yType, N>& values, const std::array<yType, N>& deriv) noexcept
+HermiteInterpolator<xType, yType, N>::HermiteInterpolator(const std::array<xType, N> &points_, const std::array<yType, N>& values_, const std::array<yType, N>& deriv_) noexcept
 {
 
-    this->deriv  = deriv;
+    deriv  = deriv_;
 
     for(std::size_t i = 0; i < 2 * N; i += 2)
     {
-        this->points[i]     = points[i];
-        this->points[i + 1] = points[i];
+        points[i]     = points_[i];
+        points[i + 1] = points_[i];
 
-        this->values[i]     = values[i];
-        this->values[i + 1] = values[i];
+        values[i]     = values_[i];
+        values[i + 1] = values_[i];
 
     }
 
-    yType a = this->values[0];
+    yType a = values[0];
     
     for(std::size_t i = 0; i < 2 * N - 1; i += 2)
     {
-        this->values[i] = this->deriv[i];
-        this->values[i + 1] = (this->values[i + 2] - this->values[i + 1]) / (this->points[i + 2] - this->points[i + 1]); 
+        values[i] = this->deriv[i];
+        values[i + 1] = (values[i + 2] - values[i + 1]) / (points[i + 2] - points[i + 1]); 
     }
     
-    this->values[2 * N - 1] = a;
+    values[2 * N - 1] = a;
 
     for(std::size_t j = 1; j < 2 * N - 1; j++)
     {
-        a = this->values[0];
+        a = values[0];
 
         for(std::size_t i = 0; i < 2 * N - 1 - j; i++)
         {
-            this->values[i] = (this->values[i+1] - this->values[i]) / (this->points[i + 1 + j] - this->points[i]);
+            values[i] = (values[i+1] - values[i]) / (points[i + 1 + j] - points[i]);
         }
 
-        this->values[2 * N - 1 - j] = a;
+        values[2 * N - 1 - j] = a;
     } 
 
 };

@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/kirill/git_repozitories/COMPUT_MATH/build/TESTS",
+  "command": "/usr/bin/g++   -g -Wall -Werror -o CMakeFiles/test.dir/interpolant_tests.cpp.o -c /home/kirill/git_repozitories/COMPUT_MATH/TESTS/interpolant_tests.cpp",
+  "file": "/home/kirill/git_repozitories/COMPUT_MATH/TESTS/interpolant_tests.cpp"
+}
+]

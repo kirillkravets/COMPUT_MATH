@@ -61,7 +61,7 @@ private:
     std::array<yType, N> deriv;
 
 public:
-    HermiteInterpolator(const std::array<xType, N> &points, const std::array<yType, N>& values, const std::array<yType, N>& deriv) noexcept;
+    HermiteInterpolator(const std::array<xType, N> &points_, const std::array<yType, N>& values_, const std::array<yType, N>& deriv_) noexcept;
 
     yType interpolate(const xType& x) const noexcept;
 };

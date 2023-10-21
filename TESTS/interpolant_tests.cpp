@@ -66,6 +66,11 @@ TEST(test1, N3){
     std::string dir2 = "/home/kirill/Вычматы 2023/graphs/test_graph_chebyshev_grid_N3";
     write_points(points2, dir2);
 }
+
+
+
+
+
 TEST(test2, N4){
         
     double a = 0, b = 2;

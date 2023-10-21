@@ -8,15 +8,15 @@ dir = '/home/kirill/git_repozitories/COMPUT_MATH/graphs/derivative/test_derivati
 
 for n_i in N:
     
-    X = []
     Y = []
+    X = []
 
     with open( dir + f'{n_i}.csv', 'r') as datafile:
         plotting = csv.reader(datafile, delimiter=';')
         
         for ROWS in plotting:
-            X.append(float(ROWS[1]))
-            Y.append(float(ROWS[0]))
+            Y.append(float(ROWS[1]))
+            X.append(float(ROWS[0]))
 
     X = np.array(X)
     Y = np.array(Y)

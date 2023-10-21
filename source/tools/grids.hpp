@@ -3,7 +3,7 @@
 #include <array>
 #include <cmath>
 template<typename xType, unsigned int N>
-std::array<xType, N> make_uniform_grid(const xType& a, const xType& b){
+std::array<xType, N> make_uniform_grid(const xType a, const xType b){
     xType step = (b - a) / (N - 1);
 
     std::array<xType, N> grid;
@@ -16,7 +16,7 @@ std::array<xType, N> make_uniform_grid(const xType& a, const xType& b){
 }
 
 template<typename xType, unsigned int N>
-std::array<xType, N> make_chebyshev_grid(const xType& a, const xType& b){
+std::array<xType, N> make_chebyshev_grid(const xType a, const xType b){
     
     std::array<xType, N> grid;
        
@@ -40,6 +40,24 @@ std::array<xType, N> make_chebyshev_grid(const xType& a, const xType& b){
     return grid;
 }
 
+
+template<typename xType, std::size_t N>
+std::array<xType, N - 1> make_derivative_coefs_grid(){
+
+    std::array<xType, N - 1> grid;
+    
+    long int n = N;
+
+    for(long int i = 1; i <= n/2; i++){
+        grid[n/2 - i] = (-1) * i; 
+    }
+
+    for(long int i = 1; i < n - n/2; i++){
+        grid[n/2 + i - 1] = i;
+    }
+
+    return grid;
+}
 
 
 

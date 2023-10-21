@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/kirill/git_repozitories/COMPUT_MATH/TESTS/interpolant_tests.cpp" "TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.o" "gcc" "TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.o.d"
+  "/home/kirill/git_repozitories/COMPUT_MATH/TESTS/derivative_tests.cpp" "TESTS/CMakeFiles/test.dir/derivative_tests.cpp.o" "gcc" "TESTS/CMakeFiles/test.dir/derivative_tests.cpp.o.d"
   )
 
 # Targets to which this target links.

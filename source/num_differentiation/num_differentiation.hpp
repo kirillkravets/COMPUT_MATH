@@ -2,71 +2,68 @@
 #ifdef NUM_DIFFERENTIATION
 
 #include "../interpolant/interpolant.hpp"
-#include "../tools/Matrixes/dense_matrix.hpp"
-#include "../tools/Matrixes/vec_norm.hpp"
+#include "../tools/gauss_algorithm.hpp"
 #include <array>
 #include <vector>
 
 
 template<typename RealType, std::size_t N>
 struct DerivativeCoef {
-    RealType centralCoef;
+    RealType centralCoef = 0;
     std::array<RealType, N> otherCoefs;
 };
 
 template<typename RealType, std::size_t N>
-DerivativeCoef<RealType, N> calcDerivativeCoef(const std::array<RealType, N>& points, const RealType x0) noexcept
+DerivativeCoef<RealType, N> calcDerivativeCoef(const std::array<RealType, N>& points) noexcept
 {
-    std::vector<RealType> matrix.reserve(N * N);
+    std::array<RealType, N * (N +1)> matrix;
     DerivativeCoef<RealType, N> derivative_coefs;
     
-    coefs.centralCoef = x0;
-
-    std::vector<RealType> others_coefs_0.reserve(N); 
-    for(std::size_t i = 0; i < N; i++){
-        others_coefs_0[i] = 1 / N;
-    }
-
     
     for(std::size_t k = 0; k < N; k++){
-        matrix[k] = points[k]
+        matrix[k] = points[k];
     }
+
+    matrix[N] = 1;
 
     for(std::size_t i = 1; i < N; i++){
         for(std::size_t j = 0; j < N; j++){
-            matrix[i * N + j] = matrix[(i - 1) * N + j] * matrix[j] / (i + 1);
+            matrix[i * (N + 1) + j] = matrix[(i - 1) * (N + 1) + j] * matrix[j];
         }
+    
+        matrix[ i * (N + 1) + N] = 0;
     }
 
-    DenseMatrix A(matrix, N, N);
-    
-    std::vector<RealType> x(others_coefs_0);
-    std::vector<RealType> r_i;
-    
-    RealType norm = r + 1;
-    
-    size_t it = 1;
+    DerivativeCoef<RealType, N> result;
 
-    while(norm > r)
-    { 
-        r_i = b - A * x;
-        
-        x = x + t * r_i;
+    result.otherCoefs = gaussianElimination<RealType, N>(matrix);
 
-        norm = Third_Norm(r_i);
-        fout1 << log(norm) << '\n';
-        it++;
+    for(std::size_t i = 0; i < N; i++){
+        result.centralCoef -= result.otherCoefs[i];
     }
-    fout.close();
-    fout1.close();
 
-    return x;
-
-    return x;
+    return result;
 }
 
+template<typename xType, typename yType, std::size_t N>
+xType calcFirstDerivative(const DerivativeCoef<xType, N>& coefs, const DerivativeCoef<yType, N>& y, const xType step) noexcept
+{
+    yType derivative = 0;
+
+    for(std::size_t i = 0; i < N; i++){
+        derivative += y.otherCoefs[i] * coefs.otherCoefs[i];
+    }
+
+    derivative += y.centralCoef * coefs.centralCoef;
+    derivative /= step;
+
+    return derivative;
+}
     
     
+
+
+
 
 
 

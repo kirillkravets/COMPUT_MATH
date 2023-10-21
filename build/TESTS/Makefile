@@ -130,29 +130,29 @@ test/fast:
 	cd /home/kirill/git_repozitories/COMPUT_MATH/build && $(MAKE) $(MAKESILENT) -f TESTS/CMakeFiles/test.dir/build.make TESTS/CMakeFiles/test.dir/build
 .PHONY : test/fast
 
-interpolant_tests.o: interpolant_tests.cpp.o
-.PHONY : interpolant_tests.o
+derivative_tests.o: derivative_tests.cpp.o
+.PHONY : derivative_tests.o
 
 # target to build an object file
-interpolant_tests.cpp.o:
-	cd /home/kirill/git_repozitories/COMPUT_MATH/build && $(MAKE) $(MAKESILENT) -f TESTS/CMakeFiles/test.dir/build.make TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.o
-.PHONY : interpolant_tests.cpp.o
+derivative_tests.cpp.o:
+	cd /home/kirill/git_repozitories/COMPUT_MATH/build && $(MAKE) $(MAKESILENT) -f TESTS/CMakeFiles/test.dir/build.make TESTS/CMakeFiles/test.dir/derivative_tests.cpp.o
+.PHONY : derivative_tests.cpp.o
 
-interpolant_tests.i: interpolant_tests.cpp.i
-.PHONY : interpolant_tests.i
+derivative_tests.i: derivative_tests.cpp.i
+.PHONY : derivative_tests.i
 
 # target to preprocess a source file
-interpolant_tests.cpp.i:
-	cd /home/kirill/git_repozitories/COMPUT_MATH/build && $(MAKE) $(MAKESILENT) -f TESTS/CMakeFiles/test.dir/build.make TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.i
-.PHONY : interpolant_tests.cpp.i
+derivative_tests.cpp.i:
+	cd /home/kirill/git_repozitories/COMPUT_MATH/build && $(MAKE) $(MAKESILENT) -f TESTS/CMakeFiles/test.dir/build.make TESTS/CMakeFiles/test.dir/derivative_tests.cpp.i
+.PHONY : derivative_tests.cpp.i
 
-interpolant_tests.s: interpolant_tests.cpp.s
-.PHONY : interpolant_tests.s
+derivative_tests.s: derivative_tests.cpp.s
+.PHONY : derivative_tests.s
 
 # target to generate assembly for a file
-interpolant_tests.cpp.s:
-	cd /home/kirill/git_repozitories/COMPUT_MATH/build && $(MAKE) $(MAKESILENT) -f TESTS/CMakeFiles/test.dir/build.make TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.s
-.PHONY : interpolant_tests.cpp.s
+derivative_tests.cpp.s:
+	cd /home/kirill/git_repozitories/COMPUT_MATH/build && $(MAKE) $(MAKESILENT) -f TESTS/CMakeFiles/test.dir/build.make TESTS/CMakeFiles/test.dir/derivative_tests.cpp.s
+.PHONY : derivative_tests.cpp.s
 
 # Help Target
 help:
@@ -163,9 +163,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... interpolant_tests.o"
-	@echo "... interpolant_tests.i"
-	@echo "... interpolant_tests.s"
+	@echo "... derivative_tests.o"
+	@echo "... derivative_tests.i"
+	@echo "... derivative_tests.s"
 .PHONY : help
 
 

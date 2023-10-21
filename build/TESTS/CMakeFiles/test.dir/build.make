@@ -69,28 +69,28 @@ include TESTS/CMakeFiles/test.dir/progress.make
 # Include the compile flags for this target's objects.
 include TESTS/CMakeFiles/test.dir/flags.make
 
-TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.o: TESTS/CMakeFiles/test.dir/flags.make
-TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.o: ../TESTS/interpolant_tests.cpp
-TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.o: TESTS/CMakeFiles/test.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.o"
-	cd /home/kirill/git_repozitories/COMPUT_MATH/build/TESTS && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.o -MF CMakeFiles/test.dir/interpolant_tests.cpp.o.d -o CMakeFiles/test.dir/interpolant_tests.cpp.o -c /home/kirill/git_repozitories/COMPUT_MATH/TESTS/interpolant_tests.cpp
+TESTS/CMakeFiles/test.dir/derivative_tests.cpp.o: TESTS/CMakeFiles/test.dir/flags.make
+TESTS/CMakeFiles/test.dir/derivative_tests.cpp.o: ../TESTS/derivative_tests.cpp
+TESTS/CMakeFiles/test.dir/derivative_tests.cpp.o: TESTS/CMakeFiles/test.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object TESTS/CMakeFiles/test.dir/derivative_tests.cpp.o"
+	cd /home/kirill/git_repozitories/COMPUT_MATH/build/TESTS && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT TESTS/CMakeFiles/test.dir/derivative_tests.cpp.o -MF CMakeFiles/test.dir/derivative_tests.cpp.o.d -o CMakeFiles/test.dir/derivative_tests.cpp.o -c /home/kirill/git_repozitories/COMPUT_MATH/TESTS/derivative_tests.cpp
 
-TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/interpolant_tests.cpp.i"
-	cd /home/kirill/git_repozitories/COMPUT_MATH/build/TESTS && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kirill/git_repozitories/COMPUT_MATH/TESTS/interpolant_tests.cpp > CMakeFiles/test.dir/interpolant_tests.cpp.i
+TESTS/CMakeFiles/test.dir/derivative_tests.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test.dir/derivative_tests.cpp.i"
+	cd /home/kirill/git_repozitories/COMPUT_MATH/build/TESTS && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kirill/git_repozitories/COMPUT_MATH/TESTS/derivative_tests.cpp > CMakeFiles/test.dir/derivative_tests.cpp.i
 
-TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/interpolant_tests.cpp.s"
-	cd /home/kirill/git_repozitories/COMPUT_MATH/build/TESTS && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kirill/git_repozitories/COMPUT_MATH/TESTS/interpolant_tests.cpp -o CMakeFiles/test.dir/interpolant_tests.cpp.s
+TESTS/CMakeFiles/test.dir/derivative_tests.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test.dir/derivative_tests.cpp.s"
+	cd /home/kirill/git_repozitories/COMPUT_MATH/build/TESTS && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kirill/git_repozitories/COMPUT_MATH/TESTS/derivative_tests.cpp -o CMakeFiles/test.dir/derivative_tests.cpp.s
 
 # Object files for target test
 test_OBJECTS = \
-"CMakeFiles/test.dir/interpolant_tests.cpp.o"
+"CMakeFiles/test.dir/derivative_tests.cpp.o"
 
 # External object files for target test
 test_EXTERNAL_OBJECTS =
 
-TESTS/test: TESTS/CMakeFiles/test.dir/interpolant_tests.cpp.o
+TESTS/test: TESTS/CMakeFiles/test.dir/derivative_tests.cpp.o
 TESTS/test: TESTS/CMakeFiles/test.dir/build.make
 TESTS/test: TESTS/CMakeFiles/test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable test"

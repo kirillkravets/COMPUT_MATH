@@ -1,0 +1,7 @@
+/home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles/edit_cache.dir
+/home/kirill/git_repozitories/COMPUT_MATH/build/CMakeFiles/rebuild_cache.dir
+/home/kirill/git_repozitories/COMPUT_MATH/build/source/CMakeFiles/edit_cache.dir
+/home/kirill/git_repozitories/COMPUT_MATH/build/source/CMakeFiles/rebuild_cache.dir
+/home/kirill/git_repozitories/COMPUT_MATH/build/TESTS/CMakeFiles/test.dir
+/home/kirill/git_repozitories/COMPUT_MATH/build/TESTS/CMakeFiles/edit_cache.dir
+/home/kirill/git_repozitories/COMPUT_MATH/build/TESTS/CMakeFiles/rebuild_cache.dir

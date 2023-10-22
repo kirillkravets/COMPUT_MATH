@@ -37,26 +37,25 @@ decltype(auto) integrate(
     const typename ArgumentGetter<Callable>::Argument& end
                         ){
 
-    std::array<RealType, N> gauss_nodes;
-    std::array<RealType, N> gauss_weights;
+    std::array<RealType, 6> gauss_nodes;
+    std::array<RealType, 6> gauss_weights;
     
     switch (N)
     {
         case 3:
-            gauss_nodes({-0.7745967, 0, 0.7745967});
-            gauss_weights({0.5555556, 0.8888889, 0.5555556});
+            gauss_nodes = {-0.7745967, 0, 0.7745967};
+            gauss_weights = {0.5555556, 0.8888889, 0.5555556};
 
             break;
 
         case 6:
-            gauss_nodes({-0.9324700, -0.6612094, -0.2386142, 0.2386142, 0.6612094, 0.9324700});
-            gauss_weights({0.1713245, 0.3607616, 0.4679140, 0.4679140, 0.3607616, 0.1713245});
+            gauss_nodes = {-0.9324700, -0.6612094, -0.2386142, 0.2386142, 0.6612094, 0.9324700};
+            gauss_weights = {0.1713245, 0.3607616, 0.4679140, 0.4679140, 0.3607616, 0.1713245};
 
             break;
 
         default:
-            static_assert(always_false(), "Compile-time error: This program will not compile, because N != 3 or 6.");
-            
+            static_assert(N == 3 || N == 6, "Compile-time error: This program will not compile, because N != 3 or 6.");
             break;
     }
 
@@ -83,7 +82,7 @@ decltype(auto) integrate(
     const Dif<typename ArgumentGetter<Callable>::Argument>& dx  // Длина подотрезка
                         ){
 
-    decltype(auto) integral = integrate(func, start, start + dx);
+    decltype(auto) integral = integrate<Callable, RealType, N>(func, start, start + dx);
 
     Dif<typename ArgumentGetter<Callable>::Argument> diap = end - start;
 
@@ -91,14 +90,14 @@ decltype(auto) integrate(
 
     for(std::size_t i = 1; i < n; i++)
     {
-        integral += integrate(func, start + dx * i, start + dx * (i + 1));
+        integral += integrate<Callable, RealType, N>(func, start + dx * i, start + dx * (i + 1));
     }
     
-    if( end > static_cast<typename ArgumentGetter<Callable>::Argument>(start + dx * n)){
-        return integral;
-    }
+    // if( end > static_cast<typename ArgumentGetter<Callable>::Argument>(start + dx * n)){
+    //     return integral;
+    // }
 
-    integral += integrate(func, start + dx * n, end);
+    // integral += integrate<Callable, RealType, N>(func, start + dx * n, end);
 
     return integral;
 }

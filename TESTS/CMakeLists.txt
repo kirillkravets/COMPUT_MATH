@@ -7,8 +7,8 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(GTest REQUIRED)
 
 
-add_executable(test derivative_tests.cpp)
+add_executable(test integration_tests.cpp)
 
-add_test(test COMMAND derivative_tests.cpp)
+add_test(test COMMAND integration_tests.cpp)
 target_link_libraries(test gtest)
 

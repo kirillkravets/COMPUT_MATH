@@ -8,13 +8,17 @@
 #include<iomanip>
 #include <cmath>
 
-constexpr std::size_t M = 17;
+constexpr std::size_t M = 25;
+
+constexpr double scale = 4;
+constexpr double x0 = 1;
+
+const double STEP = 1;
 
 TEST(test1, N3){
     
     constexpr std::size_t N = 3;
-    double step = 1;
-    double x0 = 1;
+    double step = STEP;
 
     std::array<std::pair<double, double>, M> points;
 
@@ -37,7 +41,7 @@ TEST(test1, N3){
         //std::cout << derivative << std::endl;
 
         //std::cout << std::endl << std::exp(1.0) << std::endl;
-        step /= 10;
+        step /= scale;
 
         points[i] = std::pair<double, double>(std::log(step), std::log(std::abs(f_coefs.centralCoef - derivative)));
 
@@ -50,8 +54,7 @@ TEST(test1, N3){
 TEST(test2, N4){
     
     constexpr std::size_t N = 4;
-    double step = 1;
-    double x0 = 1;
+    double step = STEP;
 
     std::array<std::pair<double, double>, M> points;
 
@@ -74,7 +77,7 @@ TEST(test2, N4){
         //std::cout << derivative << std::endl;
 
         //std::cout << std::endl << std::exp(1.0) << std::endl;
-        step /= 10;
+        step /= scale;
 
         points[i] = std::pair<double, double>(std::log(step), std::log(std::abs(f_coefs.centralCoef - derivative)));
 
@@ -87,8 +90,7 @@ TEST(test2, N4){
 TEST(test3, N5){
     
     constexpr std::size_t N = 5;
-    double step = 1;
-    double x0 = 1;
+    double step = STEP;
 
     std::array<std::pair<double, double>, M> points;
 
@@ -111,7 +113,7 @@ TEST(test3, N5){
         //std::cout << derivative << std::endl;
 
         //std::cout << std::endl << std::exp(1.0) << std::endl;
-        step /= 10;
+        step /= scale;
 
         points[i] = std::pair<double, double>(std::log(step), std::log(std::abs(f_coefs.centralCoef - derivative)));
 

@@ -5,7 +5,7 @@ import numpy as np
 N = [3, 6]
 dir = '/home/kirill/git_repozitories/COMPUT_MATH/graphs/integration/test_integration_N'
 
-#lin_part_ind = [4, 3]
+lin_part_ind = [4, 3]
 colors = ['b', 'g']
 
 for i in range(len(N)):
@@ -23,15 +23,15 @@ for i in range(len(N)):
     X = np.array(X)
     Y = np.array(Y)
 
-    # x = X[0:lin_part_ind[i]]
-    # y = Y[0:lin_part_ind[i]]
+    x = X[0:lin_part_ind[i]]
+    y = Y[0:lin_part_ind[i]]
 
-    # k = np.polyfit(x, y, 1)
-    k = [0, 0]
-    # y = np.polyval(k, x)
+    k = np.polyfit(x, y, 1)
+    # k = [0, 0]
+    y = np.polyval(k, x)
 
     plt.plot(X, Y, ":",  label = "amount of points = {}, k = {:0.2f}".format(N[i], k[0]), color = colors[i])
-    # plt.plot(x, y, color = colors[i])
+    plt.plot(x, y, color = colors[i])
 
     plt.scatter(X, Y, color = colors[i])
 

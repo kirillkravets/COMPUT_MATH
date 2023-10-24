@@ -7,8 +7,8 @@
 #include<iomanip>
 #include <cmath>
 
-constexpr double scale = 1.5;
-constexpr std::size_t M = 40;
+constexpr double scale = 2;
+constexpr std::size_t M = 20;
 
 
 TEST(test1, N3){
@@ -28,7 +28,7 @@ TEST(test1, N3){
         //std::cout << integral << std::endl;
 
         points[i] = std::pair<double, double>(std::log(b_i), std::log(std::abs(integral - (std::cos(0) - std::cos(b)))));
-
+    
         b_i /= scale;
         
     }

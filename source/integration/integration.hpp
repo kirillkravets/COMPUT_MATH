@@ -43,7 +43,7 @@ decltype(auto) integrate(
     switch (N)
     {
         case 3:
-            gauss_nodes = {-0.7745967, 0, 0.7745967};
+            gauss_nodes = {-0.7745967, 0.0, 0.7745967};
             gauss_weights = {0.5555556, 0.8888889, 0.5555556};
 
             break;
@@ -93,11 +93,11 @@ decltype(auto) integrate(
         integral += integrate<Callable, RealType, N>(func, start + dx * i, start + dx * (i + 1));
     }
     
-    // if( end > static_cast<typename ArgumentGetter<Callable>::Argument>(start + dx * n)){
-    //     return integral;
-    // }
+    if( end == static_cast<typename ArgumentGetter<Callable>::Argument>(start + dx * n)){
+        return integral;
+    }
 
-    // integral += integrate<Callable, RealType, N>(func, start + dx * n, end);
+    integral += integrate<Callable, RealType, N>(func, start + dx * n, end);
 
     return integral;
 }

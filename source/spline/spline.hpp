@@ -52,7 +52,8 @@ CubicSpline<xType, yType>::CubicSpline( const std::vector<xType>& points,
     N = points.size() - 1;
     xgrid = points;
  
-    std::vector<yType> column.resize(N - 1);
+    std::vector<yType> column;
+    column.resize(N - 1);
     c_spline.resize(N);
 
     std::vector<yType> copy_values = values;
@@ -70,7 +71,8 @@ CubicSpline<xType, yType>::CubicSpline( const std::vector<xType>& points,
     }
 
 
-    std::vector<triple::Triple<xType>> triples.resize(N - 1);
+    std::vector<triple::Triple<xType>> triples;
+    triples.resize(N - 1);
 
     triples[0] = {0, 2, (points[2] - points[1]) / (points[2] - points[0])};
 
@@ -121,5 +123,7 @@ yType CubicSpline<xType, yType>::interpolate(const xType& x) const noexcept{
 
     yType h = x - xgrid[spl_ind];
 
-    return c_spline[spl_ind].f + h * (c_spline[spl_ind].d1 + h / 2 * (c_spline[spl_ind].d2 + h / 3 * c_spline[spl_ind].d3));
+    yType result = c_spline[spl_ind].f + h * (c_spline[spl_ind].der1 + h / 2 * (c_spline[spl_ind].der2 + h / 3 * c_spline[spl_ind].der3));
+
+    return result;
 }

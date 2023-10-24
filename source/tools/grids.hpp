@@ -1,7 +1,9 @@
 #ifndef TOOLS
 #define TOOLS
 #include <array>
+#include <vector>
 #include <cmath>
+
 template<typename xType, unsigned int N>
 std::array<xType, N> make_uniform_grid(const xType a, const xType b){
     xType step = (b - a) / (N - 1);
@@ -9,6 +11,21 @@ std::array<xType, N> make_uniform_grid(const xType a, const xType b){
     std::array<xType, N> grid;
 
     for(unsigned int i = 0; i < N; i++){
+        grid[i] = a + i * step;
+    }
+
+    return grid;
+}
+
+template<typename xType>
+std::vector<xType> make_uniform_grid(const xType a, const xType b, std::size_t N){
+    
+    xType step = (b - a) / (N - 1);
+
+    std::vector<xType> grid;
+    grid.resize(N);
+
+    for(std::size_t i = 0; i < N; i++){
         grid[i] = a + i * step;
     }
 

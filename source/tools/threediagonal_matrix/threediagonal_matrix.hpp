@@ -22,7 +22,7 @@ private:
 
 public:
 
-    ThreeDiagonalMatrix(const vector<triple::Triple<T>>& _triples);
+    ThreeDiagonalMatrix(const std::vector<triple::Triple<T>>& _triples);
 
 
     std::size_t Get_Order() const;

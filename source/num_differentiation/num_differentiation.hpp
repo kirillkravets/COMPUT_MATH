@@ -64,24 +64,4 @@ xType calcFirstDerivative(const DerivativeCoef<xType, N>& coefs, const Derivativ
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #endif

@@ -2,7 +2,6 @@
 #define THREEDIAGONAL_MATRIX_HPP
 
 #include <vector>
-using std::vector;
 
 namespace triple{
     template <typename T>
@@ -17,7 +16,7 @@ template <typename T, typename cType>
 class ThreeDiagonalMatrix{
 private:
 
-    vector<triple::Triple<T>> triples;
+    std::vector<triple::Triple<T>> triples;
 
     std::size_t matrix_order;
 
@@ -32,13 +31,13 @@ public:
 
     triple::Triple<T> operator [] (std::size_t i) const;
 
-    vector<T> Run_Through_method(const vector<cType>& right_column) const;
+    std::vector<T> Run_Through_method(const std::vector<cType>& right_column) const;
 
     void Stability_Check() noexcept;
 };
 
 template<typename T, typename cType>
-ThreeDiagonalMatrix<T, cType>::ThreeDiagonalMatrix(const vector<triple::Triple<T>>& _triples)
+ThreeDiagonalMatrix<T, cType>::ThreeDiagonalMatrix(const std::vector<triple::Triple<T>>& _triples)
 {
     triples = _triples;
     matrix_order = triples.size();
@@ -63,13 +62,13 @@ triple::Triple<T> ThreeDiagonalMatrix<T, cType>::operator [] (std::size_t i) con
 }
 
 template<typename T, typename cType>
-vector<T> ThreeDiagonalMatrix<T, cType>::Run_Through_method(const vector<cType>& right_column) const
+std::vector<T> ThreeDiagonalMatrix<T, cType>::Run_Through_method(const std::vector<cType>& right_column) const
 {
-    vector<T> alpha;
-    vector<T> beta;
+    std::vector<T> alpha;
+    std::vector<T> beta;
 
-    alpha.resize(order);
-    beta.resize(order);
+    alpha.resize(matrix_order);
+    beta.resize(matrix_order);
    
     alpha[0] = -triples[0].c / triples[0].b;
     beta[0] = right_column[0]/ triples[0].b;
@@ -84,7 +83,7 @@ vector<T> ThreeDiagonalMatrix<T, cType>::Run_Through_method(const vector<cType>&
     }
 
 
-    for(int i = order - 2; i == 0; i--){
+    for(std::size_t i = matrix_order - 2; i == 0; i--){
         beta[i] = alpha[i] * beta[i+1] + beta[i];
     }
 

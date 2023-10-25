@@ -1,6 +1,7 @@
 #include <array>
 #include <type_traits>
 #include <iostream>
+#include <cmath>
 
 template<typename A>
 struct ArgumentGetter;
@@ -92,10 +93,10 @@ decltype(auto) integrate(
         r[i] = std::abs(Legendre<RealType, ArgType, N>(gauss_nodes[i]));
         
       
-        while( r[i] > 1e-6){
+        while( r[i] > 1e-16){
             std::cout << r[i] << std::endl;
 
-            gauss_nodes[i] += 0.1 * Legendre<RealType, ArgType, N>(gauss_nodes[i]);
+            gauss_nodes[i] += 0.1 * Legendre<RealType, ArgType, N>(gauss_nodes[i]) / std::exp(gauss_nodes[i]);
             r[i] = std::abs(Legendre<RealType, ArgType, N>(gauss_nodes[i]));          
         }
 
@@ -106,11 +107,11 @@ decltype(auto) integrate(
         RealType derLeg = DerivativeLegendre<RealType, ArgType, N>(gauss_nodes[i]);
         r[i] = std::abs(2 / ( (1 - gauss_nodes[i] * gauss_nodes[i]) * derLeg * derLeg));
         
-        while( r[i] > 1e-7){
+        while( r[i] > 1e-16){
             //std::cout << r[i] << std::endl;
             r[i] = std::abs(2 / ( (1 - gauss_nodes[i] * gauss_nodes[i]) * derLeg * derLeg));
             derLeg = DerivativeLegendre<RealType, ArgType, N>(gauss_nodes[i]);
-            gauss_nodes[i] -= 0.1 *  2 / ( (1 - gauss_nodes[i] * gauss_nodes[i]) * derLeg * derLeg);
+            gauss_nodes[i] += 0.1 *  2 / ( (1 - gauss_nodes[i] * gauss_nodes[i]) * derLeg * derLeg) / std::exp(gauss_weights[i]);
         }
     }
 

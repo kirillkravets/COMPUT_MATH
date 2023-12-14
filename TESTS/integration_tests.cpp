@@ -25,7 +25,7 @@ TEST(test1, N3){
         
         auto integral = integrate<double(double), double, N>(std::sin, a, b, b_i - a);
 
-        //std::cout << integral << std::endl;
+        std::cout << i << ' ' << integral << std::endl;
 
         points[i] = std::pair<double, double>(std::log(b_i), std::log(std::abs(integral - (std::cos(0) - std::cos(b)))));
     

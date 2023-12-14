@@ -5,7 +5,7 @@ import numpy as np
 N = [3, 6]
 dir = '/home/kirill/git_repozitories/COMPUT_MATH/graphs/integration/test_integration_N'
 
-lin_part_ind = [4, 3]
+lin_part_ind = [9, 4]
 colors = ['b', 'g']
 
 for i in range(len(N)):

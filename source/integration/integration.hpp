@@ -11,6 +11,9 @@ struct ArgumentGetter<R(Arg)> {
     using Argument = Arg;
 };
 
+template<typename T>
+using Dif = decltype(std::declval<T>() - std::declval<T>());
+
 
 template<typename RealType, typename T, std::size_t N>
 RealType Legendre(T x){
@@ -19,13 +22,13 @@ RealType Legendre(T x){
     RealType Legendre1 = x;
     RealType Legendre;
 
-    for(std::size_t i = 2; i < N; i++){
-        Legendre = (2 * N + 1) / (N + 1) * x * Legendre1 - N / (N + 1) * Legendre0;
+    for(std::size_t i = 1; i < N; i++){
+        Legendre = (2 * i + 1) / (i + 1) * x * Legendre1 - i / (i + 1) * Legendre0;
         Legendre0 = Legendre1;
         Legendre1 = Legendre;
     }
 
-    return Legendre; 
+    return Legendre;
 }
 
 template<typename RealType, typename T, std::size_t N>
@@ -34,8 +37,6 @@ RealType DerivativeLegendre(T x){
     return N / (1 - x * x) * (Legendre<RealType, T, N - 1>(x) - x * Legendre<RealType, T, N>(x)); 
 }
 
-template<typename T>
-using Dif = decltype(std::declval<T>() - std::declval<T>());
 
 /* Функция производит интегрирование на одном отрезке */
 template<typename Callable, typename RealType, std::size_t N>
@@ -64,56 +65,64 @@ decltype(auto) integrate(
 
     using ArgType = typename ArgumentGetter<Callable>::Argument;
 
-
     std::array<RealType, 6> gauss_nodes;
     std::array<RealType, 6> gauss_weights;
     
     switch (N)
     {
         case 3:
-            gauss_nodes = {-0.7745967, 0.0, 0.7745967};
-            gauss_weights = {0.5555556, 0.8888889, 0.5555556};
+            gauss_nodes = {-0.7745966692414834, 0, 0.7745966692414834};
+            gauss_weights = {0.555555555555556, 0.888888888888889, 0.555555555555556};
 
             break;
 
         case 6:
-            gauss_nodes = {-0.9324700, -0.6612094, -0.2386142, 0.2386142, 0.6612094, 0.9324700};
-            gauss_weights = {0.1713245, 0.3607616, 0.4679140, 0.4679140, 0.3607616, 0.1713245};
+            gauss_nodes = {-0.932469514203152, -0.661209386466265, -0.238619186083197, 0.238619186083197, 0.661209386466265, 0.932469514203152};
+            gauss_weights = {0.171324492379170, 0.360761573048139, 0.467913934572691, 0.467913934572691, 0.360761573048139, 0.171324492379170};
 
             break;
 
         default:
-            static_assert(N == 3 || N == 6, "Compile-time error: This program will not compile, because N != 3 or 6.");
+            static_assert((N == 3 || N == 6), "Compile-time error: This program will not compile, because N != 3 or 6.");
+            
             break;
     }
 
-    std::array<RealType, N> r;
-    for(std::size_t i = 0; i < N; i++){
-        
-        r[i] = std::abs(Legendre<RealType, ArgType, N>(gauss_nodes[i]));
-        
-      
-        while( r[i] > 1e-16){
-            std::cout << r[i] << std::endl;
 
-            gauss_nodes[i] += 0.1 * Legendre<RealType, ArgType, N>(gauss_nodes[i]) / std::exp(gauss_nodes[i]);
-            r[i] = std::abs(Legendre<RealType, ArgType, N>(gauss_nodes[i]));          
-        }
-
-    }
-
-    for(std::size_t i = 0; i < N; i++){
+//    for(std::size_t i = 0; i < N; i++){  
         
-        RealType derLeg = DerivativeLegendre<RealType, ArgType, N>(gauss_nodes[i]);
-        r[i] = std::abs(2 / ( (1 - gauss_nodes[i] * gauss_nodes[i]) * derLeg * derLeg));
+//        RealType a = Legendre<RealType, ArgType, N>(gauss_nodes[i]);
         
-        while( r[i] > 1e-16){
-            //std::cout << r[i] << std::endl;
-            r[i] = std::abs(2 / ( (1 - gauss_nodes[i] * gauss_nodes[i]) * derLeg * derLeg));
-            derLeg = DerivativeLegendre<RealType, ArgType, N>(gauss_nodes[i]);
-            gauss_nodes[i] += 0.1 *  2 / ( (1 - gauss_nodes[i] * gauss_nodes[i]) * derLeg * derLeg) / std::exp(gauss_weights[i]);
-        }
-    }
+//        RealType b =  DerivativeLegendre<RealType, ArgType, N>(gauss_nodes[i]);
+        
+//         while( std::abs(a) > 1e-16){
+// //          std::cout << gauss_nodes[i] - phi[i] << '\n';
+
+//             gauss_nodes[i]  = gauss_nodes[i] - a / b;
+//             a = Legendre<RealType, ArgType, N>(gauss_nodes[i]);  
+//             b = DerivativeLegendre<RealType, ArgType, N>(gauss_nodes[i]);
+//             //std::cout << gauss_nodes[i] << ' ' <<  a  << '\n';      
+//         }
+    
+    //     RealType legendre_node_0 = gauss_nodes[i];
+    //     RealType legendre_node_1 = 1.000001 * gauss_nodes[i];
+
+    //     while(std::abs(legendre_node_1 - legendre_node_0) > 1e-16 ){
+    //         gauss_nodes[i] = legendre_node_0 - (Legendre<RealType, ArgType, N>(legendre_node_0) * (legendre_node_1 - legendre_node_0)) / (Legendre<RealType, ArgType, N>(legendre_node_1) - Legendre<RealType, ArgType, N>(legendre_node_0));
+    //         legendre_node_0 = legendre_node_1;
+    //         legendre_node_1 = gauss_nodes[i];
+    //     } 
+    // }
+
+    
+    // for(std::size_t i = 0; i < N; i++){
+        
+    //     RealType derLeg = DerivativeLegendre<RealType, ArgType, N>(gauss_nodes[i]);
+    //     gauss_weights[i] = 2 / ( (1 - gauss_nodes[i] * gauss_nodes[i]) * derLeg * derLeg);
+
+    // }
+
+
 
 
     Dif<ArgType> diap = end - start;
